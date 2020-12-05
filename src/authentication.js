@@ -9,7 +9,7 @@ class GithubStrategy extends OAuthStrategy {
     return {
       ...baseData,
       email: profile.email
-    }
+    };
   }
 }
 
