@@ -1,3 +1,5 @@
+Start it by typing npm run dev
+
 # feathers-chat
 
 > 

@@ -21,9 +21,10 @@ const login = async (credentials) => {
         ...credentials,
       });
     }
-
+    showChat();
     //show chat msgs
-    console.log('signup / login success! go to chat window ... ')
+    console.log('signup / login success! go to chat window ... ');
+
 
   } catch (error) {
     showLogin(error);
@@ -31,11 +32,7 @@ const login = async (credentials) => {
 };
 const main = async () => {
   const auth = await login();
-
   console.log('User is authenticated', auth);
-
-
-  await client.logout();
 };
 
 main();
@@ -71,17 +68,52 @@ const loginHTML = `
 
 const chatHTML = `
 <main class="flex flex-column">
-  
+  <header class="title-bar flex flex-row flex-center">
+    <div class="title-wrapper block center-element">
+      <img class="logo" src="https://feathersjs.com/img/feathers-logo-wide.png" alt="Feathers Logo">
+      <span class="title">Chat</span>
+    </div>
+  </header>
+
+  <div class="flex flex-row flex-1 clear">
+    <aside class="sidebar col col-3 flex flex-column flex-space-between">
+      <header class="flex flex-row flex-center>
+        <h4 class="font-300 text-center">
+          <span class="font-600 online-count">0</span> users
+        </h4>
+      </header>
+      <ul class="flex flex-column flex-1 list-unstyled user-list"></ul>
+      <footer class="flex flex-row flex-center">
+        <a href="#" id="logout" class="button button-primary">
+        Sign Out
+        </a>
+      </footer>
+    </aside>
+
+    <div class="flex flex-column col col-9">
+      <main class="chat flex flex-column flex-1 clear"></main>
+      
+      <form class="flex flex-row flex-space-between" id="send-message">
+        <input type="text" name="text" class="flex flex-1">
+         <button class="button-primary">Send</button>
+      </form>
+    </div>
+  </div>
 </main>
-`
+`;
 
 const showLogin = (error) => {
   if (document.querySelectorAll('.login').length && error) {
-    document.querySelector('.heading').insertAdjacentHTML('beforeend', `<p> There was an error: $(error.message)</p>`)
+    document.querySelector('.heading').insertAdjacentHTML('beforeend', '<p> There was an error: $(error.message)</p>');
   } else {
     document.getElementById('app').innerHTML = loginHTML;
   }
 };
+
+const showChat = () => {
+  document.getElementById('app').innerHTML = chatHTML;
+};
+
 const getCredentials = () => {
   const user = {
     email: document.querySelector('[name="email"]').value,
@@ -106,3 +138,18 @@ addEventListener('#signup', 'click', async () => {
 
   await login(credentials);
 });
+
+addEventListener('#login', 'click', async () => {
+  const user = getCredentials();
+  await login(user);
+
+  document.getElementById('app').innerHTML = loginHTML;
+});
+
+addEventListener('#logout', 'click', async () => {
+  await client.logout();
+
+  document.getElementById('app').innerHTML = loginHTML;
+});
+
+https://youtu.be/98wyIM9-U3w?t=1461
