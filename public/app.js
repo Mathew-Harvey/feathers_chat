@@ -110,8 +110,67 @@ const showLogin = (error) => {
   }
 };
 
-const showChat = () => {
+const showChat = async () => {
   document.getElementById('app').innerHTML = chatHTML;
+
+  const messages = await client.service('messages').find({
+    query: {
+      $sort: { createdAt: -1 },
+      $limit: 25
+    }
+  });
+
+  messages.data.reverse().forEach(addMessage);
+
+  const users = await client.service('users').find();
+
+  users.data.forEach(addUser);
+};
+
+const addUser = user => {
+  const userList = document.querySelector('.user-list');
+
+  if (userList) {
+    userList.innerHTML += `
+    <li>
+      <a class="block relative" href="#">
+        <img src="${user.avatar}" class="avatar">
+          <span class ="absolute username">${user.email}</span>
+        </a>    
+    </li>
+    `;
+
+    const userCount = document.querySelectorAll('.user-list li').length;
+    
+    document.querySelector('.online-count').innerHTML = userCount;
+  }
+};
+
+const addMessage = message => {
+  const { user = {} } = message;
+  const chat = document.querySelector('.chat');
+
+  const text = message.text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  if (chat) {
+    chat.innerHTML += `
+   <div class="message flex flex-row">
+   <img src="${user.avatar}" alt="${user.email}" class = "avatar">
+    <div class = "message-wrapper">
+      <p class="message-header">
+        <span class="username font-600">${user.email}</span>
+        <span class="sent-date font-300>${moment(message.createdAt).format('MMM Do, hh:mm:ss')}</span>
+      </p>
+      <p class="message-content font-300">${text}</p>
+    </div>
+   </div>
+  `;
+
+    chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+  }
 };
 
 const getCredentials = () => {
@@ -152,4 +211,5 @@ addEventListener('#logout', 'click', async () => {
   document.getElementById('app').innerHTML = loginHTML;
 });
 
-https://youtu.be/98wyIM9-U3w?t=1461
+
+// https://www.youtube.com/watch?v=98wyIM9-U3w&feature=youtu.be&t=1461 
