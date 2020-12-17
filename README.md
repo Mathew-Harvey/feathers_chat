@@ -53,7 +53,5 @@ Please feel free to contact me with any questions you may have:
 ### GitHub: https://github.com/mathew-harvey
 
 ### Email: mathewharvey@gmail.com
-## Application ScreenShots 📸
-![Screen Shot](/assets/)
 
 
