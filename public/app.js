@@ -30,6 +30,7 @@ const login = async (credentials) => {
     showLogin(error);
   }
 };
+
 const main = async () => {
   const auth = await login();
   console.log('User is authenticated', auth);
