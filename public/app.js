@@ -59,7 +59,7 @@ const loginHTML = `
       </button>
       <button type="button" id="signup" class="button-primary block signup" style="background-color:#363636;">
       Sign up and log in
-      </button>c
+      </button>
       <a class="button button-primary block" style="background-color:#363636;" href="/oauth/github">Log in with GitHub</a>
       </form>
     </div>

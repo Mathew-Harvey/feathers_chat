@@ -1,15 +1,29 @@
-Start it by typing npm run dev
+# The Bodyweight Gym Chat
+![GitHub followers](https://img.shields.io/github/followers/mathew-harvey?style=social)
 
-# feathers-chat
+![License type](https://img.shields.io/badge/License-MIT-Blue)
 
-> 
-
-## About
-
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
-
-## Getting Started
-
+## Table of Contents
+- [Demo](##Demo-)
+- [Description](##Description-)
+- [Motivation](#Motivation-)
+- [Installation](#Installation-)
+- [Usage](#Usage-)
+- [License](#License-)
+- [How to Contribute](#How-to-Contribute-)
+- [Authors](#Authors-)
+- [Questions](#Questions-)
+- [Application ScreenShots](#Application-ScreenShots-)
+## Demo 💻
+![Demo Video](/assets/chat.gif)
+## Deployed Application:  https://mats-chat-app.herokuapp.com/
+## Description 🧐
+Using Feathers.js I built a MVP version of a live chat application. This will eventually be integrated into a user bodyweight gym profile page. This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+## Motivation 🚀
+I wanted to learn Feathers.js and also build out a members only chat application.
+## Installation 🛠️
+Visit the hosted application
+## Usage 🏃‍♀️
 Getting up and running is as easy as 1, 2, 3.
 
 1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
@@ -25,23 +39,21 @@ Getting up and running is as easy as 1, 2, 3.
     ```
     npm start
     ```
+visit the hosted application
+## License 🎓
+This application is licensed under: MIT
+## How to Contribute 🍰
+fork and go, or clone and share. Up to you
+## Authors ✨
+Mathew Harvey
+## Questions 🤔
+Please feel free to contact me with any questions you may have: 
 
-## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
+### GitHub: https://github.com/mathew-harvey
 
-## Scaffolding
+### Email: mathewharvey@gmail.com
+## Application ScreenShots 📸
+![Screen Shot](/assets/)
 
-Feathers has a powerful command line interface. Here are a few things it can do:
 
-```
-$ npm install -g @feathersjs/cli          # Install Feathers CLI
-
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers help                           # Show all commands
-```
-
-## Help
-
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
