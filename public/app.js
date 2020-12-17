@@ -18,7 +18,7 @@ const login = async (credentials) => {
     } else {
       await client.authenticate({
         strategy: 'local',
-        ...credentials,
+        ...credentials
       });
     }
     showChat();
@@ -141,7 +141,7 @@ const addUser = user => {
     `;
 
     const userCount = document.querySelectorAll('.user-list li').length;
-    
+
     document.querySelector('.online-count').innerHTML = userCount;
   }
 };
@@ -211,5 +211,26 @@ addEventListener('#logout', 'click', async () => {
   document.getElementById('app').innerHTML = loginHTML;
 });
 
+addEventListener('#send-message', 'submit', async ev => {
+  const input = document.querySelector('[name="text"]');
+
+  ev.preventDefault();
+
+  await client.service('messages').create({
+    text: input.value
+  });
+
+  input.value = '';
+});
+
+client.service('messages').on('created', addMessage);
+
+client.service('users').on('created', addUser);
+
+
+
+
+
 
 // https://www.youtube.com/watch?v=98wyIM9-U3w&feature=youtu.be&t=1461 
+//to run app use npm run dev 
