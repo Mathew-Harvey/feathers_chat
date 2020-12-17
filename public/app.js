@@ -54,13 +54,13 @@ const loginHTML = `
         <fieldset>
         <input class="block" type="password" name="password" placeholder="password">
       </fieldset>
-      <button type="button" id="login" class="button-primary block signup">
+      <button type="button" id="login" class="button-primary block signup" style="background-color:#363636;">
       log in
       </button>
-      <button type="button" id="signup" class="button-primary block signup">
+      <button type="button" id="signup" class="button-primary block signup" style="background-color:#363636;">
       Sign up and log in
-      </button>
-      <a class="button button-primary block" href="/oauth/github">Log in with GitHub</a>
+      </button>c
+      <a class="button button-primary block" style="background-color:#363636;" href="/oauth/github">Log in with GitHub</a>
       </form>
     </div>
   </div>
@@ -69,10 +69,10 @@ const loginHTML = `
 
 const chatHTML = `
 <main class="flex flex-column">
-  <header class="title-bar flex flex-row flex-center">
+  <header style="background-color:#363636; height: 75px;" class="title-bar flex flex-row flex-center">
     <div class="title-wrapper block center-element">
-      <img class="logo" src="https://feathersjs.com/img/feathers-logo-wide.png" alt="Feathers Logo">
-      <span class="title">Chat</span>
+      <img class="logo" src="https://mathew-harvey.github.io/The-Bodyweight-Gym-Online/assets/img/TBWG%20Logo_1%20white.png" alt="Feathers Logo">
+      <span class="title">                         Chat</span>
     </div>
   </header>
 
@@ -85,7 +85,7 @@ const chatHTML = `
       </header>
       <ul class="flex flex-column flex-1 list-unstyled user-list"></ul>
       <footer class="flex flex-row flex-center">
-        <a href="#" id="logout" class="button button-primary">
+        <a href="#" id="logout" class="button button-primary" style="background-color:#363636;">
         Sign Out
         </a>
       </footer>
@@ -96,7 +96,7 @@ const chatHTML = `
       
       <form class="flex flex-row flex-space-between" id="send-message">
         <input type="text" name="text" class="flex flex-1">
-         <button class="button-primary">Send</button>
+         <button class="button-primary" style="background-color:#363636;" >Send</button>
       </form>
     </div>
   </div>
